@@ -49,3 +49,20 @@
 .header nav a.active {
 	background: rgba(0, 0, 0, 0.4);
 }
+
+.header input.url {
+	margin: 0.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 2rem;
+
+	outline: none;
+	border: none;
+
+	font-size: 1.2rem;
+	font-style: italic;
+	color: gray;
+}
+
+.header input.url::placeholder {
+	color: lightgray;
+}

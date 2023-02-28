@@ -1,4 +1,8 @@
-# {{ name }}
+# mind-map-parser
+
+## Usage
+
+Paste url to notion page, the app will present a mindmap come from the page.
 
 ## CLI Commands
 

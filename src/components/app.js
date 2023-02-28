@@ -1,23 +1,19 @@
-import { h } from 'preact';
-import { Router } from 'preact-router';
+import { useState } from 'preact/hooks';
 
+import Canvas from './canvas';
 import Header from './header';
 
 // Code-splitting is automated for `routes` directory
-import Home from '../routes/home';
-import Profile from '../routes/profile';
 
-const App = () => (
-	<div id="app">
-		<Header />
+const App = () => {
+	const [url, setUrl] = useState('');
+
+	return (<div id="app">
+		<Header {...{url, done: setUrl}} />
 		<main>
-			<Router>
-				<Home path="/" />
-				<Profile path="/profile/" user="me" />
-				<Profile path="/profile/:user" />
-			</Router>
+			<Canvas {...{url}} />
 		</main>
-	</div>
-);
+	</div>)
+};
 
 export default App;

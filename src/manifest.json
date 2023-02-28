@@ -1,6 +1,6 @@
 {
-	"name": "{{ name }}",
-	"short_name": "{{ name }}",
+	"name": "Mind Map Parser",
+	"short_name": "MMP",
 	"start_url": "/",
 	"display": "standalone",
 	"orientation": "portrait",

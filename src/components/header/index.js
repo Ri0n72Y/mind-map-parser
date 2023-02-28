@@ -1,24 +1,22 @@
-import { h } from 'preact';
-import { Link } from 'preact-router/match';
 import style from './style.css';
 
-const Header = () => (
+/**
+ * 
+ * @param {{url: string, setUrl: StateUpdater<string>}}
+ */
+const Header = ({
+	url, done
+}) => (
 	<header class={style.header}>
 		<a href="/" class={style.logo}>
 			<img src="../../assets/preact-logo-inverse.svg" alt="Preact Logo" height="32" width="32" />
-			<h1>Preact CLI</h1>
+			<h1>Mind Map Parser</h1>
 		</a>
-		<nav>
-			<Link activeClassName={style.active} href="/">
-				Home
-			</Link>
-			<Link activeClassName={style.active} href="/profile">
-				Me
-			</Link>
-			<Link activeClassName={style.active} href="/profile/john">
-				John
-			</Link>
-		</nav>
+		<input class={style.url} 
+			placeholder={'Paste url here...'}
+			value={url}
+			onChange={(e) => done(e.target.value)}
+			/>
 	</header>
 );
 
