@@ -1,24 +1,27 @@
 import { useEffect, useState } from 'preact/hooks';
 
+import { notion } from '../api';
+
 import Canvas from './canvas';
 import Header from './header';
 
 const App = () => {
-	const [auth, setAuth] = useState('');
-	const [root, setRoot] = useState('');
-	useEffect(() => {
-		const url = new URL(window.location.href);
-		setAuth(url.searchParams.get('auth'));
-		setRoot(url.searchParams.get('root'));
-	}, [setAuth, setRoot])
 
-	const refresh = () => {};
-	const apply = () => {};
+	const [key, setKey] = useState('');
+	const [id, setId] = useState('');
+	const [res, setRes] = useState('');
+
+	useEffect(() => {
+		if (key && id) {
+			notion.blocks(key, id).then(res => setRes(res));
+		}
+	}, [setRes, key, id]);
+	
 
 	return (<div id="app">
-		<Header {...{refresh, apply}} />
+		<Header {...{key, setKey, id, setId}} />
 		<main>
-			<Canvas {...{root}} />
+			<Canvas {...{res}} />
 		</main>
 	</div>)
 };

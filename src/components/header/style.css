@@ -50,7 +50,7 @@
 	background: rgba(0, 0, 0, 0.4);
 }
 
-.header input.url {
+.header input {
 	margin: 0.5rem;
 	padding: 0.5rem 1rem;
 	border-radius: 2rem;
@@ -63,6 +63,6 @@
 	color: gray;
 }
 
-.header input.url::placeholder {
+.header input::placeholder {
 	color: lightgray;
 }
