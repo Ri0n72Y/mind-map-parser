@@ -1,17 +1,24 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 
 import Canvas from './canvas';
 import Header from './header';
 
-// Code-splitting is automated for `routes` directory
-
 const App = () => {
-	const [url, setUrl] = useState('');
+	const [auth, setAuth] = useState('');
+	const [root, setRoot] = useState('');
+	useEffect(() => {
+		const url = new URL(window.location.href);
+		setAuth(url.searchParams.get('auth'));
+		setRoot(url.searchParams.get('root'));
+	}, [setAuth, setRoot])
+
+	const refresh = () => {};
+	const apply = () => {};
 
 	return (<div id="app">
-		<Header {...{url, done: setUrl}} />
+		<Header {...{refresh, apply}} />
 		<main>
-			<Canvas {...{url}} />
+			<Canvas {...{root}} />
 		</main>
 	</div>)
 };
